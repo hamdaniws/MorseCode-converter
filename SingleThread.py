@@ -1,3 +1,5 @@
+import time
+
 def morse():
     #define key
     a = ".-"
@@ -27,7 +29,7 @@ def morse():
     y = "-.--"
     z = "--.."
 
-    # Dictionary mapping
+    # Dictionary key
     morse_map = {
         'a': a, 'b': b, 'c': c, 'd': d, 'e': e,
         'f': f, 'g': g, 'h': h, 'i': i, 'j': j,
@@ -36,9 +38,45 @@ def morse():
         'u': u, 'v': v, 'w': w, 'x': x, 'y': y, 'z': z
     }
 
-    # Terjemahan
-    input_user = input("Masukkan karakter: ").lower()
-    hasil = ' '.join(morse_map.get(karakter, '?') for karakter in input_user if karakter != ' ')
-    print("hasil konversi: "+hasil)
+    teks1 = input("Teks 1: ").lower()
+    teks2 = input("Teks 2: ").lower()
+
+        
+    # Process Teks1
+    print("Teks 1: ", end="")
+    
+    teks1_morse_list = []
+    for karakter in teks1:
+        if karakter != ' ':
+            morse_code = morse_map.get(karakter, '?')
+            print(f"{morse_code} ", end="", flush=True)
+            teks1_morse_list.append(morse_code)
+            time.sleep(1)  # slight delay to show each character
+        else:
+            print("/", end="", flush=True) # space as '/'
+            teks1_morse_list.append(' ')
+            time.sleep(1)
+    
+    hasil_konversi = ' '.join(teks1_morse_list)
+    
+    # Process Teks2
+    print("\nTeks 2: ", end="")
+    
+    teks2_morse_list = []
+    for karakter in teks2:
+        if karakter != ' ':
+            morse_code = morse_map.get(karakter, '?')
+            print(f"{morse_code} ", end="", flush=True)
+            teks2_morse_list.append(morse_code)
+            time.sleep(1)
+        else:
+            print("/", end="", flush=True)
+            teks2_morse_list.append(' ')
+            time.sleep(1)
+    
+    hasil_konversi2 = ' '.join(teks2_morse_list)
+    
+    # Final Output
+    print(f"\n{hasil_konversi}/{hasil_konversi2}. {teks1} {teks2}")
 
 morse()
