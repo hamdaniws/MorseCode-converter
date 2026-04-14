@@ -29,7 +29,7 @@ def morse():
     y = "-.--"
     z = "--.."
 
-    # Dictionary key
+    # Dictionary key to convert as variable
     morse_map = {
         'a': a, 'b': b, 'c': c, 'd': d, 'e': e,
         'f': f, 'g': g, 'h': h, 'i': i, 'j': j,
@@ -51,7 +51,7 @@ def morse():
             morse_code = morse_map.get(karakter, '?')
             print(f"{morse_code} ", end="", flush=True)
             teks1_morse_list.append(morse_code)
-            time.sleep(1)  # slight delay to show each character
+            time.sleep(1)  # delay to show each printed character
         else:
             print("/", end="", flush=True) # space as '/'
             teks1_morse_list.append(' ')
@@ -76,7 +76,7 @@ def morse():
     
     hasil_konversi2 = ' '.join(teks2_morse_list)
     
-    # Final Output
-    print(f"\n{hasil_konversi}/{hasil_konversi2}. {teks1} {teks2}")
+    # Output
+    print(f"\n{hasil_konversi}/{hasil_konversi2} ({teks1} {teks2})")
 
 morse()
